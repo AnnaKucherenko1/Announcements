@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "components/Sidebar", "components/Sidebar"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
