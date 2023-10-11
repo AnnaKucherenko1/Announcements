@@ -2,7 +2,7 @@
 const AnnouncementsTable = () => {
   return (
     <div>
-      AnnouncementsTable is here
+      Announcements
     </div>
   )
 }

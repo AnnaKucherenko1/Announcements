@@ -1,16 +1,13 @@
 
 import './App.css'
 import Root from './root'
-import Navbar from './components/navbar/Navbar'
 import Sidebar from './components/sidebar/Sidebar'
 function App() {
-
-
   return (
-    <div>
+    <div className='wrapper'>
       <Sidebar />
       <div className='main-dashboard'>
-        <Navbar />
+        <div className='header'></div>
         <Root />
       </div>
     </div>
