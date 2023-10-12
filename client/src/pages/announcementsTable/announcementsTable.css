@@ -1,0 +1,24 @@
+.table-style {
+  border-collapse: collapse;
+  width: 95%;
+  margin: auto;
+  font-size: small;
+}
+.td-style {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.146);
+  height: 50px;
+}
+.th-style {
+  border-top: 2px solid rgba(0, 0, 0, 0.146);
+  text-align: left;
+  font-weight: 600;
+  padding-left: 5%;
+}
+.btns {
+  width: 95%;
+  text-align: end;
+  margin: auto;
+}
+.td-text-style {
+  padding-left: 5%;
+}
