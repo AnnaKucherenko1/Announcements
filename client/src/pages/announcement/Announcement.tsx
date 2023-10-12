@@ -1,5 +1,6 @@
 
 const Announcement = () => {
+
   return (
     <div>
       Announcement is here

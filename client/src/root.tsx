@@ -6,7 +6,7 @@ const Root = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<AnnouncementsTable />} />
+        <Route path='/announcements' element={<AnnouncementsTable />} />
         <Route path='/announcements/:id' element={<Announcement />} />
       </Routes>
     </Router>
