@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Data } from "../../types";
 import { LiaPenSolid } from 'react-icons/lia';
 
@@ -5,6 +6,10 @@ type TablePageProps = {
   currentItems: Data[];
 }
 const TablePage: React.FC<TablePageProps> = ({ currentItems }) => {
+  const navigate = useNavigate()
+  const handleEditClick = (id: number) => {
+    navigate(`/announcements/${id}`)
+  }
   return (
     <table className="table-style">
       <thead>
@@ -23,7 +28,7 @@ const TablePage: React.FC<TablePageProps> = ({ currentItems }) => {
             <td className="td-text-style">{announcement.publicationDate}</td>
             <td className="td-text-style">{announcement.lastUpdate}</td>
             <td className="td-text-style">{announcement.categories.join(', ')}</td>
-            <td><LiaPenSolid /></td>
+            <td onClick={() => handleEditClick(announcement.id)}><LiaPenSolid /></td>
           </tr>
         ))}
       </tbody>
