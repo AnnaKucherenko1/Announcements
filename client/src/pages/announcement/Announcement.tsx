@@ -18,14 +18,40 @@ const categoryOptions = [
 const Announcement = () => {
   const selectedAnnouncement = useAnnouncementContext();
   const announcement = selectedAnnouncement?.selectedAnnouncement;
-  const [categories, setCategories] = useState(
-    announcement?.categories.map((category: string) => {
+  const [formValues, setFormValues] = useState({
+    title: announcement?.title || '',
+    content: announcement?.content || '',
+    categories: announcement?.categories.map((category: string) => {
       return {
         label: category,
         value: category,
       };
-    }) ?? []
-  );
+    }) ?? [],
+    publicationDate: announcement?.publicationDate || '',
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleCategoryChange = (newValue: any) => {
+    setFormValues({
+      ...formValues,
+      categories: newValue,
+    });
+  };
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
 
   const saveChanges = (event: { preventDefault: () => void }): void => {
     event.preventDefault();
@@ -43,9 +69,11 @@ const Announcement = () => {
             </label>
             <input
               type='text'
+              value={formValues.title}
               name='title'
               id='title'
               className='form-control'
+              onChange={handleInputChange}
             />
           </div>
           <div className='mb-3'>
@@ -54,9 +82,11 @@ const Announcement = () => {
             </label>
             <textarea
               name='content'
+              value={formValues.content}
               id='content'
               className='form-control'
               style={{ height: '40vh', resize: 'none' }}
+              onChange={handleTextareaChange}
             ></textarea>
           </div>
           <div className='mb-3'>
@@ -66,8 +96,8 @@ const Announcement = () => {
             <Select
               options={categoryOptions}
               isMulti
-              defaultValue={categories}
-              onChange={() => setCategories}
+              defaultValue={formValues.categories}
+              onChange={handleCategoryChange}
             />
           </div>
           <div className='mb-3'>
@@ -76,9 +106,11 @@ const Announcement = () => {
             </label>
             <input
               type='text'
+              value={formValues.publicationDate}
               name='publicationDate'
               id='publicationDate'
               className='form-control'
+              onChange={handleInputChange}
             />
           </div>
           <button

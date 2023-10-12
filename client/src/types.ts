@@ -6,7 +6,7 @@ export type Data = {
   content: string,
   id?: number
 }
-export type optiontype = {
+export type optionType = {
   value: string;
   label: string;
 };
