@@ -1,7 +1,8 @@
 import { useAnnouncementContext } from '../../hooks/contextHook';
 import Select from 'react-select';
 import './announcement.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import ToastError from '../../components/modalError/ModalError';
 
 const categoryOptions = [
   { label: 'City', value: 'City' },
@@ -21,17 +22,29 @@ const Announcement = () => {
   const [formValues, setFormValues] = useState({
     title: announcement?.title || '',
     content: announcement?.content || '',
-    categories: announcement?.categories.map((category: string) => {
-      return {
-        label: category,
-        value: category,
-      };
-    }) ?? [],
+    categories:
+      announcement?.categories.map((category: string) => {
+        return {
+          label: category,
+          value: category,
+        };
+      }) ?? [],
     publicationDate: announcement?.publicationDate || '',
   });
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
   const [errors, setErrors] = useState({});
+  useEffect(() => {
+    validateForm(formValues);
+    console.log('here');
+  }, [formValues]);
 
-  const validateForm = (values: { title: string; content: string; categories: { label: string; value: string; }[]; publicationDate: string; }) => {
+  const validateForm = (values: {
+    title: string;
+    content: string;
+    categories: { label: string; value: string }[];
+    publicationDate: string;
+  }) => {
     const newErrors: {
       title: string;
       content: string;
@@ -53,11 +66,10 @@ const Announcement = () => {
       newErrors.categories = 'Select at least one category';
     }
     if (!/^\d{1,2}\/\d{1,2}\/\d{4} \d{2}:\d{2}$/.test(values.publicationDate)) {
-      newErrors.publicationDate = 'Publication Date must be in the format DD/MM/YYYY HH:mm';
+      newErrors.publicationDate =
+        'Publication Date must be in the format DD/MM/YYYY HH:mm';
     }
     setErrors(newErrors);
-    console.log(newErrors)
-    console.log(errors)
 
     return Object.values(newErrors).every((error) => error === '');
   };
@@ -101,10 +113,12 @@ const Announcement = () => {
     if (isFormValid) {
       console.log('Saved');
     } else {
-      const errorMessages = Object.values(errors).filter((error) => error !== '');
-      console.log(errorMessages)
+      const errorMessages = Object.values(errors).filter(
+        (error) => error !== ''
+      );
       const errorMessage = errorMessages.join('\n');
-      alert(errorMessage);
+      setToastMessage(errorMessage);
+      setModalOpen(true);
     }
   };
 
@@ -172,6 +186,8 @@ const Announcement = () => {
           </button>
         </form>
       </div>
+      {modalOpen &&
+        <ToastError modalOpen={modalOpen} closeModal={() => setModalOpen(false)} toastMessage={toastMessage} />}
     </div>
   );
 };
