@@ -52,8 +52,8 @@ const Announcement = () => {
     if (values.categories.length === 0) {
       newErrors.categories = 'Select at least one category';
     }
-    if (!values.publicationDate) {
-      newErrors.publicationDate = 'Publication Date is required';
+    if (!/^\d{1,2}\/\d{1,2}\/\d{4} \d{2}:\d{2}$/.test(values.publicationDate)) {
+      newErrors.publicationDate = 'Publication Date must be in the format DD/MM/YYYY HH:mm';
     }
     setErrors(newErrors);
     console.log(newErrors)
@@ -64,10 +64,19 @@ const Announcement = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
+    if (name === 'publicationDate') {
+      if (/^\d{0,2}\/\d{0,2}\/\d{0,4} \d{0,2}:\d{0,2}$/.test(value)) {
+        setFormValues({
+          ...formValues,
+          [name]: value,
+        });
+      }
+    } else {
+      setFormValues({
+        ...formValues,
+        [name]: value,
+      });
+    }
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
