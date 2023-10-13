@@ -40,17 +40,17 @@ const AnnouncementsTable = () => {
   };
   return (
     <div>
-      <h2>Announcements</h2>
+      <h2 className='title'>Announcements</h2>
 
       <TablePage currentItems={currentItems} />
       <div className='td-style btns'>
-        <span>
+        <div className='span-text'>
           Page {currentPage} of {totalPages}
-        </span>
-        <button onClick={handlePrevPage} disabled={currentPage === 1}>
+        </div>
+        <button className='button' onClick={handlePrevPage} disabled={currentPage === 1}>
           {`<`}
         </button>
-        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+        <button className='button' onClick={handleNextPage} disabled={currentPage === totalPages}>
           {`>`}
         </button>
       </div>

@@ -5,10 +5,16 @@ import { GoMegaphone } from 'react-icons/go';
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <a href="/announcements">
+      <div className='test-city'>
+        <img src="/unnamed.webp" alt="Logo" />
+        Test city
+      </div>
+      <div className='link'>
         <GoMegaphone />
-        Announcements
-      </a>
+        <a href="/announcements" className='a'>
+          Announcements
+        </a>
+      </div>
     </div>
   )
 }

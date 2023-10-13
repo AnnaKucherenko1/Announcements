@@ -1,12 +1,12 @@
 .table-style {
   border-collapse: collapse;
   width: 95%;
-  margin: auto;
+  margin: 5% auto 0%;
   font-size: small;
 }
 .td-style {
   border-bottom: 2px solid rgba(0, 0, 0, 0.146);
-  height: 50px;
+  height: 45px;
 }
 .th-style {
   border-top: 2px solid rgba(0, 0, 0, 0.146);
@@ -16,9 +16,28 @@
 }
 .btns {
   width: 95%;
-  text-align: end;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.button {
+  height: 100%;
+  border-left: 2px solid rgba(0, 0, 0, 0.146);
 }
 .td-text-style {
   padding-left: 5%;
+}
+.title {
+margin: 3% 2.5%;
+}
+.span-text {
+  height: 100%;
+  border-left: 2px solid rgba(0, 0, 0, 0.146);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: small;
+  font-weight: 600;
 }
