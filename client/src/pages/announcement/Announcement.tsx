@@ -29,6 +29,38 @@ const Announcement = () => {
     }) ?? [],
     publicationDate: announcement?.publicationDate || '',
   });
+  const [errors, setErrors] = useState({});
+
+  const validateForm = (values: { title: string; content: string; categories: { label: string; value: string; }[]; publicationDate: string; }) => {
+    const newErrors: {
+      title: string;
+      content: string;
+      categories: string;
+      publicationDate: string;
+    } = {
+      title: '',
+      content: '',
+      categories: '',
+      publicationDate: '',
+    };
+    if (!values.title) {
+      newErrors.title = 'Title is required';
+    }
+    if (!values.content) {
+      newErrors.content = 'Content is required';
+    }
+    if (values.categories.length === 0) {
+      newErrors.categories = 'Select at least one category';
+    }
+    if (!values.publicationDate) {
+      newErrors.publicationDate = 'Publication Date is required';
+    }
+    setErrors(newErrors);
+    console.log(newErrors)
+    console.log(errors)
+
+    return Object.values(newErrors).every((error) => error === '');
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -55,7 +87,16 @@ const Announcement = () => {
 
   const saveChanges = (event: { preventDefault: () => void }): void => {
     event.preventDefault();
-    console.log('saved');
+    const isFormValid = validateForm(formValues);
+
+    if (isFormValid) {
+      console.log('Saved');
+    } else {
+      const errorMessages = Object.values(errors).filter((error) => error !== '');
+      console.log(errorMessages)
+      const errorMessage = errorMessages.join('\n');
+      alert(errorMessage);
+    }
   };
 
   return (
