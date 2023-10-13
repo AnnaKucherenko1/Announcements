@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '../../services';
 import './announcementsTable.css';
-import TablePage from '../../components/TablePage/TablePage';
+import TablePage from '../../components/tablePage/TablePage';
 import { Data } from '../../types';
 
 const AnnouncementsTable = () => {
