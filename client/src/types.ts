@@ -4,5 +4,9 @@ export type Data = {
   lastUpdate: string,
   categories: string[],
   content: string,
-  id: number
+  id?: number
 }
+export type optionType = {
+  value: string;
+  label: string;
+};
