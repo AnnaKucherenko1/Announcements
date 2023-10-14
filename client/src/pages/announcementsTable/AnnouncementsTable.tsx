@@ -1,31 +1,41 @@
-import { useEffect, useState } from 'react';
-import { fetchData } from '../../services';
+import { useEffect, useMemo, useState } from 'react';
 import './announcementsTable.css';
 import TablePage from '../../components/tablePage/TablePage';
 import { Data } from '../../types';
+import {
+  GET_ANNOUNCEMENTS,
+  GET_NUMBER_OF_ALL,
+} from '../../graphql/queriesDeclarations';
+import { useQuery } from '@apollo/client';
+import ToastError from '../../components/modalError/ModalError';
 
 const AnnouncementsTable = () => {
   const [announcements, setAnnouncements] = useState<Data[]>([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
+  const { loading, error, data } = useQuery(GET_ANNOUNCEMENTS, {
+    variables: { page: currentPage, perPage: itemsPerPage },
+  });
+  const { data: numberOfAllData } = useQuery(GET_NUMBER_OF_ALL);
 
   useEffect(() => {
-    async function apiCall() {
-      try {
-        const data = await fetchData();
-        setAnnouncements(data);
-      } catch (error) {
-        //TODO: add toast with error
-      }
+    if (data) {
+      setAnnouncements(data.getAnnouncementsByPage);
     }
+    if (error) {
+      setModalOpen(true);
+      setToastMessage(`${error.message}. Please try again.`);
+    }
+  }, [data, currentPage, error]);
 
-    apiCall();
-  }, []);
 
-  const totalPages = Math.ceil(announcements.length / itemsPerPage);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = announcements.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = useMemo(() => {
+    return numberOfAllData?.getNumberOfAll
+      ? Math.ceil(numberOfAllData.getNumberOfAll / itemsPerPage)
+      : 1;
+  }, [numberOfAllData, itemsPerPage]);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -42,18 +52,41 @@ const AnnouncementsTable = () => {
     <div>
       <h2 className='title'>Announcements</h2>
 
-      <TablePage currentItems={currentItems} />
-      <div className='td-style btns'>
-        <div className='span-text'>
-          Page {currentPage} of {totalPages}
+      {loading ? (
+        <div className='loading-indicator'>
+          <p>Loading...</p>
         </div>
-        <button className='button' onClick={handlePrevPage} disabled={currentPage === 1}>
-          {`<`}
-        </button>
-        <button className='button' onClick={handleNextPage} disabled={currentPage === totalPages}>
-          {`>`}
-        </button>
-      </div>
+      ) : (
+        <>
+          <TablePage currentItems={announcements} />
+          <div className='td-style btns'>
+            <div className='span-text'>
+              Page {currentPage} of {totalPages}
+            </div>
+            <button
+              className='button'
+              onClick={handlePrevPage}
+              disabled={currentPage === 1}
+            >
+              {'<'}
+            </button>
+            <button
+              className='button'
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+            >
+              {'>'}
+            </button>
+          </div>
+        </>
+      )}
+      {modalOpen && (
+        <ToastError
+          modalOpen={modalOpen}
+          closeModal={() => setModalOpen(false)}
+          toastMessage={toastMessage}
+        />
+      )}
     </div>
   );
 };

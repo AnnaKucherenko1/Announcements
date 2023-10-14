@@ -13,7 +13,7 @@ const ModalError = ({ modalOpen, closeModal, toastMessage }: propsToastError) =>
     <>
       <Modal show={modalOpen} onHide={closeModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Validation Error</Modal.Title>
+          <Modal.Title>Error</Modal.Title>
         </Modal.Header>
         <Modal.Body>{toastMessage}</Modal.Body>
         <Modal.Footer>

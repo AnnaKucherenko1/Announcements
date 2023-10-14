@@ -36,7 +36,6 @@ const Announcement = () => {
   const [errors, setErrors] = useState({});
   useEffect(() => {
     validateForm(formValues);
-    console.log('here');
   }, [formValues]);
 
   const validateForm = (values: {
@@ -186,8 +185,13 @@ const Announcement = () => {
           </button>
         </form>
       </div>
-      {modalOpen &&
-        <ToastError modalOpen={modalOpen} closeModal={() => setModalOpen(false)} toastMessage={toastMessage} />}
+      {modalOpen && (
+        <ToastError
+          modalOpen={modalOpen}
+          closeModal={() => setModalOpen(false)}
+          toastMessage={toastMessage}
+        />
+      )}
     </div>
   );
 };

@@ -4,7 +4,7 @@ export type Data = {
   lastUpdate: string,
   categories: string[],
   content: string,
-  id?: number
+  _id?: number
 }
 export type optionType = {
   value: string;

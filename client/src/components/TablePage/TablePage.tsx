@@ -16,7 +16,7 @@ const TablePage: React.FC<TablePageProps> = ({ currentItems }) => {
       return;
     }
 
-    const selectedAnnouncement = currentItems.find((announcement) => announcement.id === id);
+    const selectedAnnouncement = currentItems.find((announcement) => announcement._id === id);
 
     if (selectedAnnouncement) {
       (announcementContext.setSelectedAnnouncement as (announcement: Data | null) => void)(selectedAnnouncement);
@@ -41,12 +41,12 @@ const TablePage: React.FC<TablePageProps> = ({ currentItems }) => {
       </thead>
       <tbody>
         {currentItems.map((announcement: Data) => (
-          <tr key={announcement.id} className="td-style">
+          <tr key={announcement._id} className="td-style">
             <td className="td-text-style">{announcement.title}</td>
             <td className="td-text-style">{announcement.publicationDate}</td>
             <td className="td-text-style">{announcement.lastUpdate}</td>
             <td className="td-text-style">{announcement.categories.join(', ')}</td>
-            <td onClick={() => handleEditClick(announcement.id as number)}><LiaPenSolid /></td>
+            <td onClick={() => handleEditClick(announcement._id as number)}><LiaPenSolid /></td>
           </tr>
         ))}
       </tbody>
