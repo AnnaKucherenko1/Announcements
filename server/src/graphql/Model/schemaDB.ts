@@ -1,14 +1,15 @@
+import { Document } from 'mongoose';
 import mongoose from './db';
 import { ObjectId } from 'mongodb';
 
-export type AnnouncementType = {
-  _id: ObjectId
-  title: string
-  publicationDate: string
-  lastUpdate: string
-  categories: string[]
-  content: string
-}
+export type AnnouncementType = Document & {
+  _id: ObjectId;
+  title: string;
+  publicationDate: string | null;
+  lastUpdate: string | null;
+  categories: string[];
+  content: string;
+};
 
 const announcementSchema = new mongoose.Schema<AnnouncementType>({
   title: {
@@ -27,7 +28,7 @@ const announcementSchema = new mongoose.Schema<AnnouncementType>({
   },
   categories: {
     type: [String],
-    default: null,
+    default: [],
     required: true,
   },
   content: {
