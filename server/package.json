@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@apollo/server": "^4.9.4",
+    "apollo-server-errors": "^3.3.1",
+    "graphql": "^16.8.1",
+    "mongoose": "^7.6.2"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/node": "^20.8.6",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js",
+    "compose": "docker-compose up -d"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
