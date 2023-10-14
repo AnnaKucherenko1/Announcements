@@ -16,3 +16,10 @@ export const GET_NUMBER_OF_ALL = gql`
     getNumberOfAll
   }
 `;
+export const GET_ANNOUNCEMENT = gql`
+  query GetAnnouncement($_id: ID!) {
+    getAnnouncement(_id: $_id) {
+      content
+    }
+  }
+`;
