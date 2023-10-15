@@ -8,15 +8,15 @@ import {
 } from '../../graphql/queriesDeclarations';
 import { useQuery } from '@apollo/client';
 import ToastError from '../../components/modalError/ModalError';
+import { FIRST_PAGE, ITEMS_PER_PAGE } from '../../common/constants';
 
 const AnnouncementsTable = () => {
   const [announcements, setAnnouncements] = useState<Data[]>([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [toastMessage, setToastMessage] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<number>(FIRST_PAGE);
   const { loading, error, data } = useQuery(GET_ANNOUNCEMENTS, {
-    variables: { page: currentPage, perPage: itemsPerPage },
+    variables: { page: currentPage, perPage: ITEMS_PER_PAGE },
   });
   const { data: numberOfAllData } = useQuery(GET_NUMBER_OF_ALL);
 
@@ -33,9 +33,9 @@ const AnnouncementsTable = () => {
 
   const totalPages = useMemo(() => {
     return numberOfAllData?.getNumberOfAll
-      ? Math.ceil(numberOfAllData.getNumberOfAll / itemsPerPage)
+      ? Math.ceil(numberOfAllData.getNumberOfAll / ITEMS_PER_PAGE)
       : 1;
-  }, [numberOfAllData, itemsPerPage]);
+  }, [numberOfAllData]);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -66,7 +66,7 @@ const AnnouncementsTable = () => {
             <button
               className='button'
               onClick={handlePrevPage}
-              disabled={currentPage === 1}
+              disabled={currentPage === FIRST_PAGE}
             >
               {'<'}
             </button>

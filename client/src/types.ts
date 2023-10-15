@@ -10,3 +10,15 @@ export type optionType = {
   value: string;
   label: string;
 };
+export type FormValues = {
+  title: string; 
+  content: string; 
+  categories: { label: string; value: string; }[]; 
+  publicationDate: string;
+}
+export type NewErrors = {
+  title: string;
+  content: string;
+  categories: string;
+  publicationDate: string;
+}
