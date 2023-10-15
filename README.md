@@ -14,17 +14,18 @@ To get started with the Announcements project, follow these steps:
 ### Server
 
 1. Navigate to the root directory of the server application using your terminal.
+ 
     ```console
     cd server
     ```
 
-2. Run the following command to install the server's dependencies:
+3. Run the following command to install the server's dependencies:
 
     ```console
     npm install
     ```
 
-3. Docker:
+4. Docker:
     The project includes a docker-compose file to spawn a mongodb container and a seed service that seeds 50 announcement items into the db on container start.
     Run the following command to compose the mongodb docker container and seed data:
 
@@ -34,9 +35,9 @@ To get started with the Announcements project, follow these steps:
   #### Important note
   It will spawn container on a default mongodb port 27017. Please make sure there is no other mongodb server running on that port on your machine locally when running this application. Otherwise the BE might be connecting to your local mongodb database instead of the dockerised one with seeded data.
   
-4. Run the following command to start the server:
+5. Run the following command to start the server:
    
-        ```console
+    ```console
     npm start
     ```
 Server is running on: http://localhost:4000/
