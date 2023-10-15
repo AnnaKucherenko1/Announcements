@@ -1,18 +1,9 @@
-.table-style {
-  border-collapse: collapse;
-  width: 95%;
-  margin: 5% auto 0%;
-}
 .td-style {
   border-bottom: 2px solid rgba(0, 0, 0, 0.146);
   height: 45px;
 }
-.th-style {
-  border-top: 2px solid rgba(0, 0, 0, 0.146);
-  text-align: left;
-  padding-left: 5%;
-  font-weight: 900;
-  font-size: 12px;
+.td-style:hover {
+  background-color: rgba(204, 204, 204, 0.375)
 }
 .btns {
   width: 95%;
@@ -25,18 +16,9 @@
   height: 100%;
   border-left: 2px solid rgba(0, 0, 0, 0.146);
 }
-.td-text-style {
-  padding-left: 5%;
-  font-size: 10px;
-  font-weight: 700;
-}
 .title {
   margin: 3% 2.5%;
   font-weight: 900;
-}
-.pen {
-  font-size: large;
-  cursor: pointer;
 }
 .span-text {
   height: 100%;

@@ -11,7 +11,7 @@ export default {
         console.log(error);
         throw new ApolloError(error);
       }
-  },
+    },
     getAnnouncementsByPage: async (_: any, { page, perPage }: any) => {
       try {
         const announcementsData = await getAnnouncementsByPage(page, perPage);
@@ -41,5 +41,5 @@ export default {
         throw new ApolloError(error);
       }
     },
- },
-}
+  },
+};

@@ -5,6 +5,7 @@ import { useAnnouncementContext } from "../../hooks/contextHook";
 import { useCallback } from "react";
 import { formatDate, formatDateAndTime } from "../../common/utils";
 import './table.css'
+import { ROUTE_ANNOUNCEMENTS } from "../../common/constants";
 
 type TableProps = {
   currentItems: Data[];
@@ -13,18 +14,14 @@ const Table: React.FC<TableProps> = ({ currentItems }) => {
   const navigate = useNavigate();
   const announcementContext = useAnnouncementContext();
 
-  const handleEditClick = useCallback((id: number) => {
+  const handleEditClick = useCallback((id: number, announcement: Data) => {
     if (!announcementContext) {
       return;
     }
 
-    const selectedAnnouncement = currentItems.find((announcement) => announcement._id === id);
-
-    if (selectedAnnouncement) {
-      (announcementContext.setSelectedAnnouncement as (announcement: Data | null) => void)(selectedAnnouncement);
-    }
-    navigate(`/announcements/${id}`);
-  }, [currentItems, announcementContext, navigate]);
+    (announcementContext.setSelectedAnnouncement as (announcement: Data | null) => void)(announcement);
+    navigate(`${ROUTE_ANNOUNCEMENTS}/${id}`);
+  }, [announcementContext, navigate]);
 
   if (!announcementContext) {
     return null;
@@ -48,7 +45,7 @@ const Table: React.FC<TableProps> = ({ currentItems }) => {
             <td className="td-text-style">{formatDateAndTime(announcement.publicationDate)}</td>
             <td className="td-text-style">{formatDate(announcement.lastUpdate)}</td>
             <td className="td-text-style">{announcement.categories.join(', ')}</td>
-            <td className="pen" onClick={() => handleEditClick(announcement._id as number)}><LiaPenSolid /></td>
+            <td className="pen" onClick={() => handleEditClick(announcement._id as number, announcement)}><LiaPenSolid /></td>
           </tr>
         ))}
       </tbody>

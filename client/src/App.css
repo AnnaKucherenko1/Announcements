@@ -21,3 +21,8 @@
   height: 6%;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .header {
+   display: none;
+  }
+}

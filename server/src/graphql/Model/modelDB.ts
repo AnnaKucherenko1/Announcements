@@ -10,7 +10,8 @@ async function getAnnouncement(_id: string) {
     console.error(error);
     return error;
   }
-}
+};
+
 async function getAnnouncementsByPage(page: number, perPage: number) {
   try {
     const skip = (page - 1) * perPage;
@@ -24,7 +25,8 @@ async function getAnnouncementsByPage(page: number, perPage: number) {
     console.error(error);
     return error;
   }
-}
+};
+
 async function getNumberOfAll() {
   try {
     const count = await Announcement.countDocuments({});
@@ -33,7 +35,8 @@ async function getNumberOfAll() {
     console.error(error);
     return error;
   }
-}
+};
+
 async function editAnnouncement(_id: string, updatedAnnouncement: any) {
   try {
     const announcement = await Announcement.findByIdAndUpdate(_id, updatedAnnouncement, { new: true });
@@ -54,6 +57,6 @@ async function editAnnouncement(_id: string, updatedAnnouncement: any) {
     console.error(error);
     return error;
   }
-}
+};
 
 export { getAnnouncementsByPage, getNumberOfAll, getAnnouncement, editAnnouncement};

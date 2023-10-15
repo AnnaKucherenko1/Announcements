@@ -7,8 +7,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { GET_ANNOUNCEMENT } from '../../graphql/queriesDeclarations';
 import { useMutation, useQuery } from '@apollo/client';
 import { EDIT_ANNOUNCEMENT } from '../../graphql/mutationDeclarations';
-import { CATEGORY_OPTIONS } from '../../common/constants';
-import { FormValues, NewErrors } from '../../types';
+import { CATEGORY_OPTIONS, REGEX_INPUT_FORMAT, REGEX_INPUT_VALIDATION, ROUTE_ANNOUNCEMENTS } from '../../common/constants';
+import { Category, FormValues, NewErrors } from '../../types';
 import { formatDateTo_MM_DD_YYYY, toISOString } from '../../common/utils';
 
 
@@ -18,8 +18,9 @@ const AnnouncementPage = () => {
   const { id } = useParams();
   const { loading, error, data } = useQuery(GET_ANNOUNCEMENT, {
     variables: { _id: id },
+    fetchPolicy: 'no-cache',
   });
-  const [formValues, setFormValues] = useState({
+  const [formValues, setFormValues] = useState<FormValues>({
     title: announcement?.title || '',
     content: '',
     categories:
@@ -33,7 +34,6 @@ const AnnouncementPage = () => {
   });
   const [modalOpen, setModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
-  const [errors, setErrors] = useState({});
   const [editAnnouncement] = useMutation(EDIT_ANNOUNCEMENT);
   const navigate = useNavigate()
 
@@ -47,38 +47,41 @@ const AnnouncementPage = () => {
   }, [loading, error, data]);
 
   const validateForm = (values: FormValues) => {
-    const newErrors: NewErrors = {
+    let hasError = false;
+    const errors: NewErrors = {
       title: '',
       content: '',
       categories: '',
       publicationDate: '',
     };
     if (!values.title) {
-      newErrors.title = 'Title is required';
+      errors.title = 'Title is required';
+      hasError = true;
     }
     if (!values.content) {
-      newErrors.content = 'Content is required';
+      errors.content = 'Content is required';
+      hasError = true;
     }
     if (values.categories.length === 0) {
-      newErrors.categories = 'Select at least one category';
+      errors.categories = 'Select at least one category';
+      hasError = true;
     }
-    if (!/^\d{1,2}\/\d{1,2}\/\d{4} \d{2}:\d{2}$/.test(values.publicationDate)) {
-      newErrors.publicationDate =
+    if (!REGEX_INPUT_VALIDATION.test(values.publicationDate)) {
+      errors.publicationDate =
         'Publication Date must be in the format DD/MM/YYYY HH:mm';
+      hasError = true;
     }
-    setErrors(newErrors);
 
-    return Object.values(newErrors).every((error) => error === '');
+    return {
+      hasError,
+      errors
+    }
   };
-
-  // useEffect(() => {
-  //   validateForm(formValues);
-  // }, [formValues]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     if (name === 'publicationDate') {
-      if (/^\d{0,2}\/\d{0,2}\/\d{0,4} \d{0,2}:\d{0,2}$/.test(value)) {
+      if (REGEX_INPUT_FORMAT.test(value)) {
         setFormValues({
           ...formValues,
           [name]: value,
@@ -92,13 +95,13 @@ const AnnouncementPage = () => {
     }
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleCategoryChange = (newValue: any) => {
+  const handleCategoryChange = (newValue: Category[]) => {
     setFormValues({
       ...formValues,
       categories: newValue,
     });
   };
+
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormValues({
@@ -109,20 +112,19 @@ const AnnouncementPage = () => {
 
   const saveChanges = (event: { preventDefault: () => void }): void => {
     event.preventDefault();
-    const isFormValid = validateForm(formValues);
+    const { hasError, errors } = validateForm(formValues);
 
-    if (isFormValid) {
+    if (!hasError) {
       handleEditAnnouncement(formValues)
-
     } else {
       const errorMessages = Object.values(errors).filter(
         (error) => error !== ''
       );
-      const errorMessage = errorMessages.join('\n');
-      setToastMessage(errorMessage);
-      setModalOpen(true);
+      const errorMessage = errorMessages.join('; ');
+      showErrorToUser(errorMessage);
     }
   };
+
   const handleEditAnnouncement = async (formValues: FormValues) => {
     try {
       const now = new Date();
@@ -141,12 +143,18 @@ const AnnouncementPage = () => {
         },
       });
 
-      navigate('/announcements')
+      navigate(ROUTE_ANNOUNCEMENTS)
       console.log('Announcement edited successfully');
 
     } catch (error) {
+      showErrorToUser('Error editing announcement, please try again');
       console.error('Error editing announcement', error);
     }
+  };
+
+  const showErrorToUser = (message: string) => {
+    setToastMessage(message);
+    setModalOpen(true);
   };
 
   return (
@@ -192,7 +200,7 @@ const AnnouncementPage = () => {
                 options={CATEGORY_OPTIONS}
                 isMulti
                 defaultValue={formValues.categories}
-                onChange={handleCategoryChange}
+                onChange={(e) => handleCategoryChange(e as Category[])}
               />
             </div>
             <div className='mb-3'>

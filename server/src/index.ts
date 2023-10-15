@@ -14,6 +14,4 @@ startStandaloneServer(server, {
   console.log(`🚀  Server ready at: ${result.url}`);
 }).catch((error) => {
   console.error("Failed to start server with error: ", error);
-})
-
-
+});
