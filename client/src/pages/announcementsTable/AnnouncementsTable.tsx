@@ -30,7 +30,6 @@ const AnnouncementsTable = () => {
     }
   }, [data, currentPage, error]);
 
-
   const totalPages = useMemo(() => {
     return numberOfAllData?.getNumberOfAll
       ? Math.ceil(numberOfAllData.getNumberOfAll / ITEMS_PER_PAGE)
@@ -48,6 +47,7 @@ const AnnouncementsTable = () => {
       setCurrentPage(currentPage - 1);
     }
   };
+
   return (
     <div>
       <h2 className='title'>Announcements</h2>
