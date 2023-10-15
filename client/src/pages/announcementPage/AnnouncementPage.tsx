@@ -1,6 +1,6 @@
 import { useAnnouncementContext } from '../../hooks/contextHook';
 import Select from 'react-select';
-import './announcement.css';
+import './announcementPage.css';
 import { useEffect, useState } from 'react';
 import ToastError from '../../components/modalError/ModalError';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -9,9 +9,10 @@ import { useMutation, useQuery } from '@apollo/client';
 import { EDIT_ANNOUNCEMENT } from '../../graphql/mutationDeclarations';
 import { CATEGORY_OPTIONS } from '../../common/constants';
 import { FormValues, NewErrors } from '../../types';
+import { formatDateTo_MM_DD_YYYY, toISOString } from '../../common/utils';
 
 
-const Announcement = () => {
+const AnnouncementPage = () => {
   const selectedAnnouncement = useAnnouncementContext();
   const announcement = selectedAnnouncement?.selectedAnnouncement;
   const { id } = useParams();
@@ -28,7 +29,7 @@ const Announcement = () => {
           value: category,
         };
       }) ?? [],
-    publicationDate: announcement?.publicationDate || '',
+    publicationDate: formatDateTo_MM_DD_YYYY(announcement?.publicationDate as string) || '',
   });
   const [modalOpen, setModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -108,7 +109,6 @@ const Announcement = () => {
 
   const saveChanges = (event: { preventDefault: () => void }): void => {
     event.preventDefault();
-    console.log(formValues)
     const isFormValid = validateForm(formValues);
 
     if (isFormValid) {
@@ -135,7 +135,7 @@ const Announcement = () => {
             title: formValues.title,
             content: formValues.content,
             categories: categoryValues,
-            publicationDate: formValues.publicationDate,
+            publicationDate: toISOString(formValues.publicationDate),
             lastUpdate: now.toISOString(),
           },
         },
@@ -155,10 +155,10 @@ const Announcement = () => {
         <p>Loading...</p>
       ) : (
         <div className='container'>
-          <h1 className='mt-5'>Edit the announcement</h1>
+          <h2 className='title-announcement'>Edit the announcement</h2>
           <form onSubmit={saveChanges}>
             <div className='mb-3'>
-              <label htmlFor='title' className='form-label'>
+              <label htmlFor='title' className='form-label fw-bold'>
                 Title
               </label>
               <input
@@ -171,7 +171,7 @@ const Announcement = () => {
               />
             </div>
             <div className='mb-3'>
-              <label htmlFor='content' className='form-label'>
+              <label htmlFor='content' className='form-label fw-bold'>
                 Content
               </label>
               <textarea
@@ -179,14 +179,15 @@ const Announcement = () => {
                 value={formValues.content}
                 id='content'
                 className='form-control'
-                style={{ height: '40vh', resize: 'none' }}
+                style={{ height: '35vh', resize: 'none' }}
                 onChange={handleTextareaChange}
               ></textarea>
             </div>
             <div className='mb-3'>
-              <label htmlFor='categories' className='form-label'>
-                Categories
+              <label htmlFor='categories' className='form-label fw-bold'>
+                Category
               </label>
+              <p className='description'>Select category so readers know what your announcement is about.</p>
               <Select
                 options={CATEGORY_OPTIONS}
                 isMulti
@@ -195,7 +196,7 @@ const Announcement = () => {
               />
             </div>
             <div className='mb-3'>
-              <label htmlFor='publicationDate' className='form-label'>
+              <label htmlFor='publicationDate' className='form-label fw-bold'>
                 Publication Date
               </label>
               <input
@@ -209,8 +210,8 @@ const Announcement = () => {
             </div>
             <button
               type='submit'
-              className='btn btn-warning float-end btn-style'
-              style={{ borderRadius: '40px' }}
+              className='btn float-end btn-style'
+              style={{ borderRadius: '40px', backgroundColor: 'rgb(255,182,74)' }}
             >
               Publish
             </button>
@@ -228,4 +229,4 @@ const Announcement = () => {
   );
 };
 
-export default Announcement;
+export default AnnouncementPage;

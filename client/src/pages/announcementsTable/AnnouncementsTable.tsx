@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import './announcementsTable.css';
-import TablePage from '../../components/tablePage/TablePage';
+import Table from '../../components/table/Table';
 import { Data } from '../../types';
 import {
   GET_ANNOUNCEMENTS,
@@ -58,7 +58,7 @@ const AnnouncementsTable = () => {
         </div>
       ) : (
         <>
-          <TablePage currentItems={announcements} />
+          <Table currentItems={announcements} />
           <div className='td-style btns'>
             <div className='span-text'>
               Page {currentPage} of {totalPages}

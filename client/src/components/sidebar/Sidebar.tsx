@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className='test-city'>
-        <img src="/unnamed.webp" alt="Logo" />
+        <img src="/logo.webp" alt="Logo" />
         Test city
       </div>
       <div className='link'>

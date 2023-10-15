@@ -1,0 +1,16 @@
+.table-style {
+  border-collapse: collapse;
+  width: 95%;
+  margin: 5% auto 0%;
+}
+.th-style {
+  border-top: 2px solid rgba(0, 0, 0, 0.146);
+  text-align: left;
+  padding-left: 5%;
+  font-weight: 900;
+  font-size: 12px;
+}
+.pen {
+  font-size: large;
+  cursor: pointer;
+}

@@ -1,400 +1,400 @@
 [
   {
     "title": "Title 1",
-    "publicationDate": "16/02/2023 10:55",
-    "lastUpdate": "11/09/2023 11:31",
+    "publicationDate": "2023-02-16T10:55:00",
+    "lastUpdate": "2023-09-11T11:31:00",
     "categories": ["City", "Culture"],
     "content": "Content 1",
     "id": 1
   },
   {
     "title": "Title 2",
-    "publicationDate": "17/02/2023 09:30",
-    "lastUpdate": "10/09/2023 14:45",
+    "publicationDate": "2023-02-17T09:30:00",
+    "lastUpdate": "2023-09-10T14:45:00",
     "categories": ["Community Events"],
     "content": "Content 2",
     "id": 2
   },
   {
     "title": "Title 3",
-    "publicationDate": "18/02/2023 15:20",
-    "lastUpdate": "09/09/2023 09:15",
+    "publicationDate": "2023-02-18T15:20:00",
+    "lastUpdate": "2023-09-09T09:15:00",
     "categories": ["Kids & Family"],
     "content": "Content 3",
     "id": 3
   },
   {
     "title": "Title 4",
-    "publicationDate": "19/02/2023 11:45",
-    "lastUpdate": "08/09/2023 13:00",
+    "publicationDate": "2023-02-19T11:45:00",
+    "lastUpdate": "2023-09-08T13:00:00",
     "categories": ["Crime & Safety", "Emergencies"],
     "content": "Content 4",
     "id": 4
   },
   {
     "title": "Title 5",
-    "publicationDate": "20/02/2023 14:10",
-    "lastUpdate": "07/09/2023 10:30",
+    "publicationDate": "2023-02-20T14:10:00",
+    "lastUpdate": "2023-09-07T10:30:00",
     "categories": ["Discounts & Benefits", "For Seniors"],
     "content": "Content 5",
     "id": 5
   },
   {
     "title": "Title 6",
-    "publicationDate": "21/02/2023 08:40",
-    "lastUpdate": "06/09/2023 15:55",
+    "publicationDate": "2023-02-21T08:40:00",
+    "lastUpdate": "2023-09-06T15:55:00",
     "categories": ["Health"],
     "content": "Content 6",
     "id": 6
   },
   {
     "title": "Title 7",
-    "publicationDate": "22/02/2023 12:15",
-    "lastUpdate": "05/09/2023 12:20",
+    "publicationDate": "2023-02-22T12:15:00",
+    "lastUpdate": "2023-09-05T12:20:00",
     "categories": ["City", "Community Events", "Kids & Family"],
     "content": "Content 7",
     "id": 7
   },
   {
     "title": "Title 8",
-    "publicationDate": "23/02/2023 13:55",
-    "lastUpdate": "04/09/2023 16:45",
+    "publicationDate": "2023-02-23T13:55:00",
+    "lastUpdate": "2023-09-04T16:45:00",
     "categories": ["Culture", "Discounts & Benefits", "For Seniors"],
     "content": "Content 8",
     "id": 8
   },
   {
     "title": "Title 9",
-    "publicationDate": "24/02/2023 09:25",
-    "lastUpdate": "03/09/2023 14:10",
+    "publicationDate": "2023-02-24T09:25:00",
+    "lastUpdate": "2023-09-03T14:10:00",
     "categories": ["Health", "Kids & Family"],
     "content": "Content 9",
     "id": 9
   },
   {
     "title": "Title 10",
-    "publicationDate": "25/02/2023 11:50",
-    "lastUpdate": "02/09/2023 11:30",
+    "publicationDate": "2023-02-25T11:50:00",
+    "lastUpdate": "2023-09-02T11:30:00",
     "categories": ["City", "Emergencies"],
     "content": "Content 10",
     "id": 10
   },
   {
     "title": "Title 11",
-    "publicationDate": "26/02/2023 14:30",
-    "lastUpdate": "01/09/2023 15:50",
+    "publicationDate": "2023-02-26T14:30:00",
+    "lastUpdate": "2023-09-01T15:50:00",
     "categories": ["Discounts & Benefits"],
     "content": "Content 11",
     "id": 11
   },
   {
     "title": "Title 12",
-    "publicationDate": "27/02/2023 10:15",
-    "lastUpdate": "31/08/2023 13:25",
+    "publicationDate": "2023-02-27T10:15:00",
+    "lastUpdate": "2023-08-31T13:25:00",
     "categories": ["For Seniors", "Health"],
     "content": "Content 12",
     "id": 12
   },
   {
     "title": "Title 13",
-    "publicationDate": "28/02/2023 12:55",
-    "lastUpdate": "30/08/2023 09:40",
+    "publicationDate": "2023-02-28T12:55:00",
+    "lastUpdate": "2023-08-30T09:40:00",
     "categories": ["City", "Culture", "Kids & Family"],
     "content": "Content 13",
     "id": 13
   },
   {
     "title": "Title 14",
-    "publicationDate": "01/03/2023 13:45",
-    "lastUpdate": "29/08/2023 12:10",
+    "publicationDate": "2023-03-01T13:45:00",
+    "lastUpdate": "2023-08-29T12:10:00",
     "categories": ["Discounts & Benefits", "Emergencies"],
     "content": "Content 14",
     "id": 14
   },
   {
     "title": "Title 15",
-    "publicationDate": "02/03/2023 08:50",
-    "lastUpdate": "28/08/2023 14:30",
+    "publicationDate": "2023-03-02T08:50:00",
+    "lastUpdate": "2023-08-28T14:30:00",
     "categories": ["Health", "For Seniors"],
     "content": "Content 15",
     "id": 15
   },
   {
     "title": "Title 16",
-    "publicationDate": "03/03/2023 11:30",
-    "lastUpdate": "27/08/2023 10:45",
+    "publicationDate": "2023-03-03T11:30:00",
+    "lastUpdate": "2023-08-27T10:45:00",
     "categories": ["Community Events", "Culture"],
     "content": "Content 16",
     "id": 16
   },
   {
     "title": "Title 17",
-    "publicationDate": "04/03/2023 09:20",
-    "lastUpdate": "26/08/2023 13:20",
+    "publicationDate": "2023-03-04T09:20:00",
+    "lastUpdate": "2023-08-26T13:20:00",
     "categories": ["City", "Emergencies"],
     "content": "Content 17",
     "id": 17
   },
   {
     "title": "Title 18",
-    "publicationDate": "05/03/2023 15:15",
-    "lastUpdate": "25/08/2023 09:55",
+    "publicationDate": "2023-03-05T15:15:00",
+    "lastUpdate": "2023-08-25T09:55:00",
     "categories": ["Discounts & Benefits", "Health"],
     "content": "Content 18",
     "id": 18
   },
   {
     "title": "Title 19",
-    "publicationDate": "06/03/2023 14:40",
-    "lastUpdate": "24/08/2023 12:30",
+    "publicationDate": "2023-03-06T14:40:00",
+    "lastUpdate": "2023-08-24T12:30:00",
     "categories": ["For Seniors", "Kids & Family"],
     "content": "Content 19",
     "id": 19
   },
   {
     "title": "Title 20",
-    "publicationDate": "07/03/2023 12:10",
-    "lastUpdate": "23/08/2023 14:15",
+    "publicationDate": "2023-03-07T12:10:00",
+    "lastUpdate": "2023-08-23T14:15:00",
     "categories": ["Culture", "City"],
     "content": "Content 20",
     "id": 20
   },
   {
     "title": "Title 21",
-    "publicationDate": "08/03/2023 10:05",
-    "lastUpdate": "22/08/2023 10:20",
+    "publicationDate": "2023-03-08T10:05:00",
+    "lastUpdate": "2023-08-22T10:20:00",
     "categories": ["Emergencies", "Community Events"],
     "content": "Content 21",
     "id": 21
   },
   {
     "title": "Title 22",
-    "publicationDate": "09/03/2023 14:50",
-    "lastUpdate": "21/08/2023 11:40",
+    "publicationDate": "2023-03-09T14:50:00",
+    "lastUpdate": "2023-08-21T11:40:00",
     "categories": ["Health", "Discounts & Benefits"],
     "content": "Content 22",
     "id": 22
   },
   {
     "title": "Title 23",
-    "publicationDate": "10/03/2023 11:20",
-    "lastUpdate": "20/08/2023 13:45",
+    "publicationDate": "2023-03-10T11:20:00",
+    "lastUpdate": "2023-08-20T13:45:00",
     "categories": ["Kids & Family", "For Seniors"],
     "content": "Content 23",
     "id": 23
   },
   {
     "title": "Title 24",
-    "publicationDate": "11/03/2023 13:25",
-    "lastUpdate": "19/08/2023 09:30",
+    "publicationDate": "2023-03-11T13:25:00",
+    "lastUpdate": "2023-08-19T09:30:00",
     "categories": ["City", "Culture"],
     "content": "Content 24",
     "id": 24
   },
   {
     "title": "Title 25",
-    "publicationDate": "12/03/2023 15:35",
-    "lastUpdate": "18/08/2023 10:45",
+    "publicationDate": "2023-03-12T15:35:00",
+    "lastUpdate": "2023-08-18T10:45:00",
     "categories": ["Community Events", "Emergencies"],
     "content": "Content 25",
     "id": 25
   },
   {
     "title": "Title 26",
-    "publicationDate": "13/03/2023 09:45",
-    "lastUpdate": "17/08/2023 15:50",
+    "publicationDate": "2023-03-13T09:45:00",
+    "lastUpdate": "2023-08-17T15:50:00",
     "categories": ["Discounts & Benefits", "Health"],
     "content": "Content 26",
     "id": 26
   },
   {
     "title": "Title 27",
-    "publicationDate": "14/03/2023 12:30",
-    "lastUpdate": "16/08/2023 12:05",
+    "publicationDate": "2023-03-14T12:30:00",
+    "lastUpdate": "2023-08-16T12:05:00",
     "categories": ["For Seniors", "Kids & Family"],
     "content": "Content 27",
     "id": 27
   },
   {
     "title": "Title 28",
-    "publicationDate": "15/03/2023 14:15",
-    "lastUpdate": "15/08/2023 11:20",
+    "publicationDate": "2023-03-15T14:15:00",
+    "lastUpdate": "2023-08-15T11:20:00",
     "categories": ["City", "Culture"],
     "content": "Content 28",
     "id": 28
   },
   {
     "title": "Title 29",
-    "publicationDate": "16/03/2023 09:30",
-    "lastUpdate": "14/08/2023 14:35",
+    "publicationDate": "2023-03-16T09:30:00",
+    "lastUpdate": "2023-08-14T14:35:00",
     "categories": ["Emergencies", "Community Events"],
     "content": "Content 29",
     "id": 29
   },
   {
     "title": "Title 30",
-    "publicationDate": "17/03/2023 10:55",
-    "lastUpdate": "13/08/2023 13:50",
+    "publicationDate": "2023-03-17T10:55:00",
+    "lastUpdate": "2023-08-13T13:50:00",
     "categories": ["Health", "Discounts & Benefits"],
     "content": "Content 30",
     "id": 30
   },
   {
     "title": "Title 31",
-    "publicationDate": "18/03/2023 13:40",
-    "lastUpdate": "12/08/2023 15:15",
+    "publicationDate": "2023-03-18T13:40:00",
+    "lastUpdate": "2023-08-12T15:15:00",
     "categories": ["Kids & Family"],
     "content": "Content 31",
     "id": 31
   },
   {
     "title": "Title 32",
-    "publicationDate": "19/03/2023 12:10",
-    "lastUpdate": "11/08/2023 12:30",
+    "publicationDate": "2023-03-19T12:10:00",
+    "lastUpdate": "2023-08-11T12:30:00",
     "categories": ["City", "Culture"],
     "content": "Content 32",
     "id": 32
   },
   {
     "title": "Title 33",
-    "publicationDate": "20/03/2023 14:25",
-    "lastUpdate": "10/08/2023 10:45",
+    "publicationDate": "2023-03-20T14:25:00",
+    "lastUpdate": "2023-08-10T10:45:00",
     "categories": ["Community Events", "Emergencies"],
     "content": "Content 33",
     "id": 33
   },
   {
     "title": "Title 34",
-    "publicationDate": "21/03/2023 09:55",
-    "lastUpdate": "09/08/2023 15:40",
+    "publicationDate": "2023-03-21T09:55:00",
+    "lastUpdate": "2023-08-09T15:40:00",
     "categories": ["Discounts & Benefits", "Health"],
     "content": "Content 34",
     "id": 34
   },
   {
     "title": "Title 35",
-    "publicationDate": "22/03/2023 11:20",
-    "lastUpdate": "08/08/2023 11:20",
+    "publicationDate": "2023-03-22T11:20:00",
+    "lastUpdate": "2023-08-08T11:20:00",
     "categories": ["For Seniors", "Kids & Family"],
     "content": "Content 35",
     "id": 35
   },
   {
     "title": "Title 36",
-    "publicationDate": "23/03/2023 15:55",
-    "lastUpdate": "07/08/2023 10:35",
+    "publicationDate": "2023-03-23T15:55:00",
+    "lastUpdate": "2023-08-07T10:35:00",
     "categories": ["City", "Culture"],
     "content": "Content 36",
     "id": 36
   },
   {
     "title": "Title 37",
-    "publicationDate": "24/03/2023 10:20",
-    "lastUpdate": "06/08/2023 13:50",
+    "publicationDate": "2023-03-24T10:20:00",
+    "lastUpdate": "2023-08-06T13:50:00",
     "categories": ["Community Events", "Emergencies"],
     "content": "Content 37",
     "id": 37
   },
   {
     "title": "Title 38",
-    "publicationDate": "25/03/2023 14:45",
-    "lastUpdate": "05/08/2023 09:25",
+    "publicationDate": "2023-03-25T14:45:00",
+    "lastUpdate": "2023-08-05T09:25:00",
     "categories": ["Discounts & Benefits", "Health"],
     "content": "Content 38",
     "id": 38
   },
   {
     "title": "Title 39",
-    "publicationDate": "26/03/2023 11:30",
-    "lastUpdate": "04/08/2023 12:55",
+    "publicationDate": "2023-03-26T11:30:00",
+    "lastUpdate": "2023-08-04T12:55:00",
     "categories": ["For Seniors", "Kids & Family"],
     "content": "Content 39",
     "id": 39
   },
   {
     "title": "Title 40",
-    "publicationDate": "27/03/2023 13:50",
-    "lastUpdate": "03/08/2023 14:10",
+    "publicationDate": "2023-03-27T13:50:00",
+    "lastUpdate": "2023-08-03T14:10:00",
     "categories": ["City", "Culture"],
     "content": "Content 40",
     "id": 40
   },
   {
     "title": "Title 41",
-    "publicationDate": "28/03/2023 09:45",
-    "lastUpdate": "02/08/2023 10:20",
+    "publicationDate": "2023-03-28T09:45:00",
+    "lastUpdate": "2023-08-02T10:20:00",
     "categories": ["Emergencies", "Community Events"],
     "content": "Content 41",
     "id": 41
   },
   {
     "title": "Title 42",
-    "publicationDate": "29/03/2023 14:20",
-    "lastUpdate": "01/08/2023 11:40",
+    "publicationDate": "2023-03-29T14:20:00",
+    "lastUpdate": "2023-08-01T11:40:00",
     "categories": ["Health", "Discounts & Benefits"],
     "content": "Content 42",
     "id": 42
   },
   {
     "title": "Title 43",
-    "publicationDate": "30/03/2023 11:10",
-    "lastUpdate": "31/07/2023 13:45",
+    "publicationDate": "2023-03-30T11:10:00",
+    "lastUpdate": "2023-07-31T13:45:00",
     "categories": ["Kids & Family", "For Seniors"],
     "content": "Content 43",
     "id": 43
   },
   {
     "title": "Title 44",
-    "publicationDate": "31/03/2023 12:45",
-    "lastUpdate": "30/07/2023 09:30",
+    "publicationDate": "2023-03-31T12:45:00",
+    "lastUpdate": "2023-07-30T09:30:00",
     "categories": ["City", "Culture"],
     "content": "Content 44",
     "id": 44
   },
   {
     "title": "Title 45",
-    "publicationDate": "01/04/2023 14:15",
-    "lastUpdate": "29/07/2023 10:45",
+    "publicationDate": "2023-04-01T14:15:00",
+    "lastUpdate": "2023-07-29T10:45:00",
     "categories": ["Community Events", "Emergencies"],
     "content": "Content 45",
     "id": 45
   },
   {
     "title": "Title 46",
-    "publicationDate": "02/04/2023 09:30",
-    "lastUpdate": "28/07/2023 15:50",
+    "publicationDate": "2023-04-02T09:30:00",
+    "lastUpdate": "2023-07-28T15:50:00",
     "categories": ["Discounts & Benefits", "Health"],
     "content": "Content 46",
     "id": 46
   },
   {
     "title": "Title 47",
-    "publicationDate": "03/04/2023 10:55",
-    "lastUpdate": "27/07/2023 12:05",
+    "publicationDate": "2023-04-03T10:55:00",
+    "lastUpdate": "2023-07-27T12:05:00",
     "categories": ["For Seniors", "Kids & Family"],
     "content": "Content 47",
     "id": 47
   },
   {
     "title": "Title 48",
-    "publicationDate": "04/04/2023 13:40",
-    "lastUpdate": "26/07/2023 11:20",
+    "publicationDate": "2023-04-04T13:40:00",
+    "lastUpdate": "2023-07-26T11:20:00",
     "categories": ["City", "Culture"],
     "content": "Content 48",
     "id": 48
   },
   {
     "title": "Title 49",
-    "publicationDate": "05/04/2023 15:25",
-    "lastUpdate": "25/07/2023 14:35",
+    "publicationDate": "2023-04-05T15:25:00",
+    "lastUpdate": "2023-07-25T14:35:00",
     "categories": ["Emergencies", "Community Events"],
     "content": "Content 49",
     "id": 49
   },
   {
     "title": "Title 50",
-    "publicationDate": "06/04/2023 11:45",
-    "lastUpdate": "24/07/2023 13:50",
+    "publicationDate": "2023-04-06T11:45:00",
+    "lastUpdate": "2023-07-24T13:50:00",
     "categories": ["Health", "Discounts & Benefits"],
     "content": "Content 50",
     "id": 50

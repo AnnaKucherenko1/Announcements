@@ -3,11 +3,13 @@ import { Data } from "../../types";
 import { LiaPenSolid } from 'react-icons/lia';
 import { useAnnouncementContext } from "../../hooks/contextHook";
 import { useCallback } from "react";
+import { formatDate, formatDateAndTime } from "../../common/utils";
+import './table.css'
 
-type TablePageProps = {
+type TableProps = {
   currentItems: Data[];
 }
-const TablePage: React.FC<TablePageProps> = ({ currentItems }) => {
+const Table: React.FC<TableProps> = ({ currentItems }) => {
   const navigate = useNavigate();
   const announcementContext = useAnnouncementContext();
 
@@ -43,14 +45,14 @@ const TablePage: React.FC<TablePageProps> = ({ currentItems }) => {
         {currentItems.map((announcement: Data) => (
           <tr key={announcement._id} className="td-style">
             <td className="td-text-style">{announcement.title}</td>
-            <td className="td-text-style">{announcement.publicationDate}</td>
-            <td className="td-text-style">{announcement.lastUpdate}</td>
+            <td className="td-text-style">{formatDateAndTime(announcement.publicationDate)}</td>
+            <td className="td-text-style">{formatDate(announcement.lastUpdate)}</td>
             <td className="td-text-style">{announcement.categories.join(', ')}</td>
-            <td onClick={() => handleEditClick(announcement._id as number)}><LiaPenSolid /></td>
+            <td className="pen" onClick={() => handleEditClick(announcement._id as number)}><LiaPenSolid /></td>
           </tr>
         ))}
       </tbody>
     </table>
   )
 }
-export default TablePage
+export default Table
