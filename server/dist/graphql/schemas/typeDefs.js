@@ -25,17 +25,17 @@ exports.default = {
 
     type Mutation {
       editAnnouncement(
-      _id: String
+      _id: ID!
       updatedAnnouncement: AnnouncementInput
   ): EditAnnouncementResponse
 }
 
     input AnnouncementInput {
-      title: String
-      publicationDate: String
-      lastUpdate: String
-      categories: [String]
-      content: String
+      title: String!
+      publicationDate: String!
+      lastUpdate: String!
+      categories: [String!]
+      content: String!
     }
   `,
 };

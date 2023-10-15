@@ -2,7 +2,6 @@
   border-collapse: collapse;
   width: 95%;
   margin: 5% auto 0%;
-  font-size: small;
 }
 .td-style {
   border-bottom: 2px solid rgba(0, 0, 0, 0.146);
@@ -11,8 +10,9 @@
 .th-style {
   border-top: 2px solid rgba(0, 0, 0, 0.146);
   text-align: left;
-  font-weight: 600;
   padding-left: 5%;
+  font-weight: 900;
+  font-size: 12px;
 }
 .btns {
   width: 95%;
@@ -27,9 +27,16 @@
 }
 .td-text-style {
   padding-left: 5%;
+  font-size: 10px;
+  font-weight: 700;
 }
 .title {
-margin: 3% 2.5%;
+  margin: 3% 2.5%;
+  font-weight: 900;
+}
+.pen {
+  font-size: large;
+  cursor: pointer;
 }
 .span-text {
   height: 100%;

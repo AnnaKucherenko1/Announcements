@@ -3,17 +3,22 @@ import './App.css'
 import Root from './root'
 import Sidebar from './components/sidebar/Sidebar'
 import { AnnouncementProvider } from './context/AnnouncementProvider'
-function App() {
+import { ApolloProvider } from '@apollo/client'
+import client from './graphql/apollo'
+
+const App = () => {
   return (
-    <AnnouncementProvider>
-      <div className='wrapper'>
-        <Sidebar />
-        <div className='main-dashboard'>
-          <div className='header'></div>
-          <Root />
+    <ApolloProvider client={client}>
+      <AnnouncementProvider>
+        <div className='wrapper'>
+          <Sidebar />
+          <div className='main-dashboard'>
+            <div className='header'></div>
+            <Root />
+          </div>
         </div>
-      </div>
-    </AnnouncementProvider>
+      </AnnouncementProvider>
+    </ApolloProvider>
   )
 }
 
