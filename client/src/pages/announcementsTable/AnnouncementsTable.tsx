@@ -59,21 +59,19 @@ const AnnouncementsTable = () => {
       ) : (
         <>
           <Table currentItems={announcements} />
-          <div className='td-style btns'>
+          <div className='btns'>
             <div className='span-text'>
               Page {currentPage} of {totalPages}
             </div>
             <button
-              className='button'
+              className={`buttonNextss ${currentPage === FIRST_PAGE ? 'disabled' : 'button'}`}
               onClick={handlePrevPage}
-              disabled={currentPage === FIRST_PAGE}
             >
               {'<'}
             </button>
             <button
-              className='button'
+              className={`buttonNextss ${currentPage === totalPages ? 'disabled' : 'button'}`}
               onClick={handleNextPage}
-              disabled={currentPage === totalPages}
             >
               {'>'}
             </button>
