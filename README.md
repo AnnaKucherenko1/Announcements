@@ -59,4 +59,10 @@ Server is running on: http://localhost:4000/
     ```console
     npm run dev
     ```
+
+4. To run tests on client use command:
+   
+    ```console
+    npm test
+    ```
 App is running on: http://localhost:5173/
