@@ -7,9 +7,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { GET_ANNOUNCEMENT } from '../../graphql/queriesDeclarations';
 import { useMutation, useQuery } from '@apollo/client';
 import { EDIT_ANNOUNCEMENT } from '../../graphql/mutationDeclarations';
-import { CATEGORY_OPTIONS, REGEX_INPUT_FORMAT, REGEX_INPUT_VALIDATION, ROUTE_ANNOUNCEMENTS } from '../../common/constants';
-import { Category, FormValues, NewErrors } from '../../types';
-import { formatDateTo_MM_DD_YYYY, toISOString } from '../../common/utils';
+
+import { CATEGORY_OPTIONS, REGEX_INPUT_FORMAT, ROUTE_ANNOUNCEMENTS } from '../../common/constants';
+import { Category, FormValues } from '../../types';
+import { formatDateTo_MM_DD_YYYY, toISOString, validateForm } from '../../common/utils';
 
 
 const AnnouncementPage = () => {
@@ -45,38 +46,6 @@ const AnnouncementPage = () => {
       }));
     }
   }, [loading, error, data]);
-
-  const validateForm = (values: FormValues) => {
-    let hasError = false;
-    const errors: NewErrors = {
-      title: '',
-      content: '',
-      categories: '',
-      publicationDate: '',
-    };
-    if (!values.title) {
-      errors.title = 'Title is required';
-      hasError = true;
-    }
-    if (!values.content) {
-      errors.content = 'Content is required';
-      hasError = true;
-    }
-    if (values.categories.length === 0) {
-      errors.categories = 'Select at least one category';
-      hasError = true;
-    }
-    if (!REGEX_INPUT_VALIDATION.test(values.publicationDate)) {
-      errors.publicationDate =
-        'Publication Date must be in the format DD/MM/YYYY HH:mm';
-      hasError = true;
-    }
-
-    return {
-      hasError,
-      errors
-    }
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
